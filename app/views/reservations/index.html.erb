@@ -1,0 +1,40 @@
+<p id= "notice"><%= notice %></p>
+<div class="page-header">
+  <h1>予約情報管理</h1>
+</div>
+
+
+<div style="text-align:center;">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>UserID</th>
+        <th>お名前</th>
+        <th>Lesson</th>
+        <th>希望日</th>
+        <th>詳細</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @reservations.each do |reservation| %>
+      <tr>
+        <td><%= reservation.user.id %></td>
+        <td><a href="/users/<%= reservation.user.id %>"><%= reservation.user.name %></a></td>
+        <td><a href="/lessons/<%= reservation.lesson.id %>"><%= reservation.lesson.name %></a></td>
+        <td><%= reservation.date_time %></td>
+        <td><a href="/reservations/<%= reservation.id %>">詳細</a></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<br>
+
+<p>
+  <%= link_to '新規作成', new_reservation_path, class: 'btn btn-info' %>
+</p>
+<p>
+  <%= link_to 'トップページへ戻る', top_path, class: 'btn btn-success' %>
+</p>

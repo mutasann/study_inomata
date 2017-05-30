@@ -1,0 +1,39 @@
+<%= form_for reservation do |f| %>
+
+  <% if reservation.errors.any? %>
+    <div id="error_explanation">
+      <div class="alert alert-danger" role="alert">
+        <h2><%= pluralize(reservation.errors.count, "個のエラーがあります") %> 保存に失敗しました </h2>
+        <% reservation.errors.full_messages.each do |message| %>
+          <%=  message %><br>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="well">
+    <p>
+      <div class="field">
+        <%= f.label :レッスン受講者を選んでください %> <br>
+        <%= f.collection_select :user_id, User.where(user_type: 'student'), :id, :name %>
+      </div>
+
+      <div class="field">
+        <%= f.label :受講するレッスンを選んでください %> <br>
+        <%= f.collection_select :lesson_id, Lesson.all, :id, :name %>
+      </div>
+
+      <div class="field">
+        <%= f.label :ご予約日時を入力してください %> <br>
+        <%= f.datetime_field :date_time %>
+      </div>
+    </p>
+
+    <p>
+      <div class="actions">
+        <%= f.submit "登録する", class: "btn btn-primary" %>
+      </div>
+    </p>
+ </div>
+
+<% end %>

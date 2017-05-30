@@ -1,0 +1,14 @@
+<%= @reservation.user.name %>様
+
+この度は当スクールをご利用いただけました事、誠にありがとうございます。
+以下はご登録頂きましたお客様情報です。
+
+ユーザー名:<%= @reservation.user.name %>
+ログインID:<%= @reservation.user.login_id %>
+パスワード:<%= @reservation.user.password %>
+メールアドレス<%= @reservation.user.email %>
+ご予約Lesson:<%= @reservation.lesson.name %>
+ご予約日時<%= @reservation.date_time %>
+
+今後のレッスンのご予約、確認、変更などは以下のページより行ってください
+http://localhost:3000/login

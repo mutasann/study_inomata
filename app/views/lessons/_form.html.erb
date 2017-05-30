@@ -1,0 +1,40 @@
+<%= form_for (@lesson) do |f| %>
+  <% if lesson.errors.any? %>
+    <div id="error_explanation">
+      <div class="alert alert-danger" role="alert">
+        <h2><%= pluralize(lesson.errors.count, "個のエラーがあります") %> 保存に失敗しました </h2>
+          <% lesson.errors.full_messages.each do |message| %>
+            <%= message %><br>
+          <% end %>
+      </div>
+    </div>
+  <% end %>
+
+  <div>
+    <div class="field">
+      <div class="col-md-6 col-md-offset-3">
+
+        <div class="field">
+          <%= f.label :レッスン名 %><br />
+          <%= f.text_field :name, class: 'form-control' %><br />
+        </div>
+
+        <div class="field">
+          <%= f.label :レッスン詳細 %><br />
+          <%= f.text_area :content, cols: 60, rows: 20, class: 'form-control' %><br />
+        </div>
+
+        <div class="field">
+          <%= f.label :画像URL %><br />
+          <%= f.file_field :image_data, accept: "image/jpeg, image/png, image/gif" %><br />
+          <%#image_dataはレコード指定 acceptで[フォームで受付可能なMIMEタイプ]を指定し送信%>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "登録", class: "btn btn-primary" %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+<% end %>

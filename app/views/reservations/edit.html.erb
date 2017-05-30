@@ -1,0 +1,9 @@
+<h1>申込内容の編集</h1>
+
+<%= render 'form', reservation: @reservation %>
+<p>
+  <%= link_to '詳細', @reservation, class: "btn btn-info" %>
+  <%= link_to '予約管理に戻る', reservation_path, class: "btn btn-primary" %>
+</p>
+
+<%= link_to 'トップページへ戻る', top_path, class: "btn btn-success" %>

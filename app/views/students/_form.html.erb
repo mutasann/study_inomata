@@ -1,0 +1,30 @@
+<%= form_for @reservation, url: reservations_path do |f| %>
+<%# form_for mewでつくったインスタンス変数に代入してformの出力先を任意の宛先を指定してやらないとvalueでエラーが起きるおそれがある%>
+  <h1><%= @current_user.name %>様のページ</h1>
+
+  <div class="well">
+    <p>
+      <div class="field">
+        <%= f.label :お客様氏名 %> <br>
+        <%= f.collection_select :user_id, User.where(id: @current_user.id), :id, :name %>
+      </div>
+
+      <div class="field">
+        <%= f.label :ご予約予定レッスン %> <br>
+        <%= f.collection_select :lesson_id, Lesson.all, :id, :name %>
+      </div>
+
+      <div class="field">
+        <%= f.label :ご予約日時を入力してください %> <br>
+        <%= f.datetime_field :date_time %>
+      </div>
+    </p>
+
+    <p>
+      <div class="actions">
+        <%= f.submit "登録する", class: "btn btn-primary" %>
+      </div>
+    </p>
+  </div>
+
+<% end %>

@@ -1,0 +1,25 @@
+ja:
+  errors:
+    messages:
+      invalid_date: は過去の日付ではご利用いただけません
+  activerecord:
+    errors:
+      models:
+        reservation:
+          attributes:
+            reservation_data:
+              messages:
+                invalid_date: メッセージが不正です
+    models:
+      reservation: お客様予約情報
+    attributes:
+      reservation:
+        id: ID
+        created_at: 登録日時
+        updated_at: 更新日時
+        user_id: お客様情報
+        lesson_id: ご予約レッスン情報
+        reservation_data: レッスンご予約指定時間
+    errors:
+      messages:
+        invalid_date: データが不正です

@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <h1>Lesson詳細</h1>
+</div>
+
+<div class="well">
+
+  <p>
+    <h2><strong>Lesson Number</strong>
+    <%= @lesson.id %></h2>
+  </p>
+
+  <p>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title"><strong><strong>コース名</strong></h3>
+      </div>
+      <div class="panel-body">
+        <h1><%= @lesson.name %></h1>
+      </div>
+    </div>
+  </p>
+
+  <p>
+    <strong>Content</strong> <br>
+      <%= image_tag show_image_lesson_path(@lesson) %>
+      <%# image_tag: イメージタグ生成 %>
+      <%# show_image: でアクションを選択 %>
+      <%# _lesson: アクセスするテーブル名 %>
+      <%# @lesson: show_imageアクションで定義したインスタンス変数%>
+  </p>
+
+  <p>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title"><strong>Lesson内容</strong></h3>
+      </div>
+      <div class="panel-body">
+        <%= @lesson.content %>
+      </div>
+    </div>
+  </p>
+</div>
+
+<p>
+  <%= link_to '編集する', edit_lesson_path(@lesson), class: 'btn btn-warning' %>
+  <%= link_to '削除', @lesson, method: :delete, data: { confirm: '本当によろしいですか？'}, class: 'btn btn-danger' %>
+  <%= link_to '戻る', lessons_path, class: 'btn btn-primary' %></br>
+</p>
+<%= link_to 'トップページへ戻る', top_path, class: 'btn btn-success' %>

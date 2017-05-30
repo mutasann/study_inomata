@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<div class="page-header">
+  <h1>予約情報詳細</h1>
+</div>
+
+<div class="well">
+  <p>
+    <p>
+      <strong>受講レッスン</strong> <br>
+      <%= @reservation.lesson.name %>
+    </p>
+
+
+    <p>
+      <strong>User Name</strong> <br>
+      <%= @reservation.user.name %>
+    </p>
+
+    <p>
+      <strong>レッスン希望日</strong> <br>
+      <%= @reservation.date_time %>
+
+    </p>
+
+    <p>
+      <strong>レッスン内容</strong> <br>
+      <%= @reservation.lesson.content %>
+    </p>
+  </p>
+</div>
+
+
+<p>
+  <%= link_to '編集', edit_reservation_path(@reservation), class: "btn btn-warning" %>
+  <%= link_to '削除', @reservation, method: :delete, data: { confirm: '本当によろしいですか？'} , class: "btn btn-danger" %>
+</p>
+<%= link_to 'マイページへ戻る', mypage_path, class: "btn btn-success" %>

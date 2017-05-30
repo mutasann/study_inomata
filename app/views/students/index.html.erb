@@ -1,0 +1,35 @@
+<p id= "notice"><%= notice %></p>
+
+<div class="page-header">
+  <h1>申し込み済みレッスン一覧</h1>
+  <h2><%= @current_user.name  %>様専用お申込みページ</h2>
+</div>
+
+
+<div style="text-align:center;">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>お名前（仮表示）</th>
+        <th>ご予約Lesson名</th>
+        <th>ご希望日</th>
+        <th>ご予約レッスン詳細</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @reservations.each do |reservation| %>
+      <tr>
+        <td><a href="/users/<%= reservation.user.id %>"><%= reservation.user.name %></a></td>
+        <td><a href="/lessons/<%= reservation.lesson.id %>"><%= reservation.lesson.name %></a></td>
+        <td><%= reservation.date_time %></td>
+        <td><a href="/reservations/<%= reservation.id %>"> 詳細を見る </a></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<br>
+
+
+<%= link_to '新規作成', students_new_path, class: "btn btn-lg btn-primary" %>

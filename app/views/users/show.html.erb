@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<div class="page-header">
+  <h1><%= @user.name %>様の情報</h1>
+</div>
+
+<div class="well">
+  <p>
+    <strong>お名前:</strong>
+    <%= @user.name %>
+  </p>
+  <p>
+    <strong>ログインid:</strong>
+    <%= @user.login_id %>
+  </p>
+  <p>
+    <strong>password:</strong>
+    <%= "●●●●●●●●●" %>
+  </p>
+  <p>
+    <strong>User type:</strong>
+    <%= @user.user_type %>
+  </p>
+  <p>
+    <strong>メールアドレス:</strong>
+    <%= @user.email %>
+  </p>
+</div>
+
+<p>
+  <%= link_to '戻る', users_path, class: "btn btn-primary" %>
+  <% if @current_user.user_type == "teacher" %>
+    <%= link_to '編集', {controller: :users, action: :edit}, class: "btn btn-warning" %>
+  <% else %>
+    <%= link_to '編集', {controller: :guest_users, action: :edit}, class: "btn btn-warning" %>
+  <% end %>
+  <%= link_to '削除', @user, method: :delete, data: { confirm: '本当によろしいですか？'}, class: "btn btn-danger" %></br>
+</p>
+<p>
+  <%= link_to 'トップページへ戻る', top_path, class: "btn btn-success" %>
+</p>

@@ -1,0 +1,13 @@
+ja:
+  activerecord:
+    models:
+      lesson: レッスン
+    attributes:
+      lesson:
+        id: ID
+        created_at: 登録日時
+        updated_at: 更新日時
+        name: レッスン名
+        content: レッスン内容
+        image: 画像名
+        image_data: 画像データ
